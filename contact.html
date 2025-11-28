@@ -619,17 +619,20 @@
                     <p>Fill this once, and we’ll already have a clear picture before we jump on a call.</p>
 
                     <!-- Note: action="#" for now, integrate with backend or form service later -->
-                <form name="contact" 
-        method="POST" 
-        data-netlify="true" 
-        netlify-honeypot="bot-field"
-        enctype="multipart/form-data">
+                 <form
+  name="contact"
+  method="POST"
+  action="/thank-you.html"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  enctype="multipart/form-data"
+>
+    <!-- Netlify required hidden fields -->
+    <input type="hidden" name="form-name" value="contact">
+    <p style="display:none;">
+        <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+    </p>
 
-        <!-- Netlify required hidden fields -->
-        <input type="hidden" name="form-name" value="contact">
-        <p style="display:none;">
-            <label>Don’t fill this out if you're human: <input name="bot-field"></label>
-        </p>
 
         <!-- Name -->
         <div>
