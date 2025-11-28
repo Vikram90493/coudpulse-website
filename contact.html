@@ -1,913 +1,931 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact & Project Brief | CoudPulse Digital Solutions</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow-x: hidden;
-            background: #050509;
-            color: #fff;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(5, 5, 10, 0.96);
-            backdrop-filter: blur(10px);
-            padding: 18px 5%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            padding: 12px 5%;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
-        }
-
-        .nav-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .logo {
-            font-size: 26px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            cursor: pointer;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 26px;
-            list-style: none;
-            font-size: 14px;
-        }
-
-        .nav-links a {
-            color: #f5f5f5;
-            position: relative;
-            letter-spacing: 0.3px;
-        }
-
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.25s;
-        }
-
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-
-        .cta-btn {
-            padding: 10px 24px;
-            border-radius: 999px;
-            border: none;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 600;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Hero */
-        .hero {
-            padding: 120px 5% 60px;
-            background: radial-gradient(circle at top left, #282a62 0%, #050509 55%, #000000 100%);
-        }
-
-        .hero-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.8fr 1.2fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .breadcrumb {
-            font-size: 13px;
-            color: #8f8f8f;
-            margin-bottom: 10px;
-        }
-
-        .breadcrumb a {
-            color: #c9c9ff;
-        }
-
-        .hero-title {
-            font-size: 36px;
-            margin-bottom: 12px;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 15px;
-            color: #c0c0c0;
-            margin-bottom: 18px;
-            line-height: 1.7;
-        }
-
-        .hero-tag-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 14px;
-        }
-
-        .hero-tag {
-            font-size: 12px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            background: rgba(5, 5, 10, 0.5);
-            color: #d8d8ff;
-        }
-
-        .hero-meta {
-            font-size: 13px;
-            color: #b0b0b0;
-        }
-
-        .hero-meta span {
-            display: block;
-        }
-
-        .hero-right-box {
-            padding: 18px;
-            border-radius: 20px;
-            background: radial-gradient(circle at top, rgba(102,126,234,0.25), rgba(5,5,10,0.95));
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            font-size: 13px;
-        }
-
-        .hero-right-box h3 {
-            font-size: 16px;
-            margin-bottom: 8px;
-        }
-
-        .hero-right-box p {
-            color: #d5d5ff;
-            margin-bottom: 10px;
-        }
-
-        .hero-contact-lines span {
-            display: block;
-            margin-bottom: 4px;
-            color: #e0e0ff;
-        }
-
-        /* Form Section */
-        .form-section {
-            padding: 30px 5% 80px;
-            background: #050509;
-        }
-
-        .form-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2.1fr 1.1fr;
-            gap: 40px;
-        }
-
-        .form-card {
-            padding: 24px 24px 28px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-        }
-
-        .form-card h2 {
-            font-size: 22px;
-            margin-bottom: 6px;
-        }
-
-        .form-card p {
-            font-size: 13px;
-            color: #c4c4c4;
-            margin-bottom: 18px;
-        }
-
-        form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px 18px;
-        }
-
-        .form-full {
-            grid-column: 1 / 3;
-        }
-
-        label {
-            display: block;
-            font-size: 12px;
-            margin-bottom: 4px;
-            color: #d2d2ff;
-        }
-
-        .input, .select, .textarea {
-            width: 100%;
-            padding: 10px 12px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            background: rgba(6, 6, 12, 0.9);
-            color: #fff;
-            font-size: 13px;
-            outline: none;
-        }
-
-        .input::placeholder,
-        .textarea::placeholder {
-            color: #777a9f;
-        }
-
-        .textarea {
-            resize: vertical;
-            min-height: 90px;
-        }
-
-        .chips-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .chip-checkbox {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .chip-checkbox input {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .chip-label {
-            padding: 6px 12px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            font-size: 12px;
-            background: rgba(10, 10, 20, 0.7);
-            color: #e0e0ff;
-            transition: all 0.2s;
-        }
-
-        .chip-checkbox input:checked + .chip-label {
-            background: rgba(102,126,234,0.25);
-            border-color: #667eea;
-        }
-
-        .inline-fields {
-            display: flex;
-            gap: 10px;
-        }
-
-        .inline-fields > div {
-            flex: 1;
-        }
-
-        .radio-row {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            font-size: 12px;
-            color: #d0d0d0;
-        }
-
-        .radio-row label {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            margin-bottom: 0;
-            color: #d0d0d0;
-        }
-
-        .small-hint {
-            font-size: 11px;
-            color: #9a9abd;
-            margin-top: 2px;
-        }
-
-        .file-input {
-            border: 1px dashed rgba(255, 255, 255, 0.25);
-            background: rgba(9, 9, 18, 0.8);
-            padding: 10px 12px;
-            border-radius: 10px;
-            font-size: 12px;
-            color: #c8c8ff;
-        }
-
-        .submit-row {
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .submit-btn {
-            padding: 11px 24px;
-            border-radius: 999px;
-            border: none;
-            cursor: pointer;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
-            font-size: 13px;
-            font-weight: 600;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
-            transition: all 0.2s;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .submit-note {
-            font-size: 11px;
-            color: #9b9bb5;
-        }
-
-        /* Right side info */
-        .side-info-card {
-            padding: 18px 18px 20px;
-            border-radius: 18px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            margin-bottom: 16px;
-            font-size: 13px;
-            color: #c8c8c8;
-        }
-
-        .side-info-card h3 {
-            font-size: 16px;
-            margin-bottom: 6px;
-        }
-
-        .side-list {
-            list-style: none;
-            margin-top: 6px;
-        }
-
-        .side-list li {
-            margin-bottom: 6px;
-            position: relative;
-            padding-left: 16px;
-            font-size: 12px;
-        }
-
-        .side-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #7affb9;
-            font-size: 11px;
-        }
-
-        .side-contact-block {
-            margin-top: 6px;
-            font-size: 13px;
-            color: #d0d0ff;
-        }
-
-        .side-contact-block span {
-            display: block;
-        }
-
-        /* Footer */
-        footer {
-            background: #030307;
-            padding: 30px 5% 18px;
-            border-top: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto 12px;
-            display: flex;
-            justify-content: space-between;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .footer-left {
-            max-width: 420px;
-        }
-
-        .footer-left h3 {
-            font-size: 18px;
-            margin-bottom: 6px;
-        }
-
-        .footer-left p {
-            font-size: 13px;
-            color: #b0b0b0;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-column h4 {
-            font-size: 13px;
-            margin-bottom: 6px;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column li {
-            margin-bottom: 4px;
-        }
-
-        .footer-column a {
-            font-size: 12px;
-            color: #b0b0b0;
-        }
-
-        .footer-column a:hover {
-            color: #667eea;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            font-size: 11px;
-            color: #777;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            padding-top: 8px;
-        }
-
-        /* Scroll to top */
-        .scroll-top {
-            position: fixed;
-            bottom: 26px;
-            right: 26px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 20px;
-            cursor: pointer;
-            opacity: 0;
-            transition: all 0.3s;
-            z-index: 999;
-            box-shadow: 0 6px 25px rgba(102,126,234,0.6);
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-4px);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-inner {
-                grid-template-columns: 1fr;
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact & Project Brief | CoudPulse Digital Solutions</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
 
-            .form-inner {
-                grid-template-columns: 1fr;
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                overflow-x: hidden;
+                background: #050509;
+                color: #fff;
             }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            /* Navigation */
+            nav {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background: rgba(5, 5, 10, 0.96);
+                backdrop-filter: blur(10px);
+                padding: 18px 5%;
+                z-index: 1000;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+                transition: all 0.3s ease;
+            }
+
+            nav.scrolled {
+                padding: 12px 5%;
+                box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
+            }
+
+            .nav-container {
+                max-width: 1300px;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+            }
+
+        /* LOGO SIZE CONTROL */
+        .logo img {
+            height: 100px !important;
+            width: auto !important;
+            object-fit: contain;
+            display: block;
         }
 
-        @media (max-width: 768px) {
+        @media(max-width: 768px) {
+            .logo img { height: 28px !important; }
+        }
+        @media(max-width: 480px) {
+            .logo img { height: 24px !important; }
+        }
+
             .nav-links {
-                display: none;
+                display: flex;
+                gap: 26px;
+                list-style: none;
+                font-size: 14px;
+            }
+
+            .nav-links a {
+                color: #f5f5f5;
+                position: relative;
+                letter-spacing: 0.3px;
+            }
+
+            .nav-links a:after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                transition: width 0.25s;
+            }
+
+            .nav-links a:hover:after {
+                width: 100%;
+            }
+
+            .cta-btn {
+                padding: 10px 24px;
+                border-radius: 999px;
+                border: none;
+                cursor: pointer;
+                font-size: 13px;
+                font-weight: 600;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: #fff;
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+                transition: all 0.2s;
+                white-space: nowrap;
+            }
+
+            .cta-btn:hover {
+                transform: translateY(-2px);
+            }
+
+            /* Hero */
+            .hero {
+                padding: 120px 5% 60px;
+                background: radial-gradient(circle at top left, #282a62 0%, #050509 55%, #000000 100%);
+            }
+
+            .hero-inner {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1.8fr 1.2fr;
+                gap: 40px;
+                align-items: center;
+            }
+
+            .breadcrumb {
+                font-size: 13px;
+                color: #8f8f8f;
+                margin-bottom: 10px;
+            }
+
+            .breadcrumb a {
+                color: #c9c9ff;
             }
 
             .hero-title {
-                font-size: 28px;
+                font-size: 36px;
+                margin-bottom: 12px;
+            }
+
+            .gradient-text {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .hero-subtitle {
+                font-size: 15px;
+                color: #c0c0c0;
+                margin-bottom: 18px;
+                line-height: 1.7;
+            }
+
+            .hero-tag-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-bottom: 14px;
+            }
+
+            .hero-tag {
+                font-size: 12px;
+                padding: 6px 12px;
+                border-radius: 999px;
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                background: rgba(5, 5, 10, 0.5);
+                color: #d8d8ff;
+            }
+
+            .hero-meta {
+                font-size: 13px;
+                color: #b0b0b0;
+            }
+
+            .hero-meta span {
+                display: block;
+            }
+
+            .hero-right-box {
+                padding: 18px;
+                border-radius: 20px;
+                background: radial-gradient(circle at top, rgba(102,126,234,0.25), rgba(5,5,10,0.95));
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                font-size: 13px;
+            }
+
+            .hero-right-box h3 {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+
+            .hero-right-box p {
+                color: #d5d5ff;
+                margin-bottom: 10px;
+            }
+
+            .hero-contact-lines span {
+                display: block;
+                margin-bottom: 4px;
+                color: #e0e0ff;
+            }
+
+            /* Form Section */
+            .form-section {
+                padding: 30px 5% 80px;
+                background: #050509;
+            }
+
+            .form-inner {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 2.1fr 1.1fr;
+                gap: 40px;
+            }
+
+            .form-card {
+                padding: 24px 24px 28px;
+                border-radius: 20px;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.07);
+            }
+
+            .form-card h2 {
+                font-size: 22px;
+                margin-bottom: 6px;
+            }
+
+            .form-card p {
+                font-size: 13px;
+                color: #c4c4c4;
+                margin-bottom: 18px;
             }
 
             form {
-                grid-template-columns: 1fr;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 14px 18px;
             }
 
             .form-full {
-                grid-column: 1 / 2;
+                grid-column: 1 / 3;
+            }
+
+            label {
+                display: block;
+                font-size: 12px;
+                margin-bottom: 4px;
+                color: #d2d2ff;
+            }
+
+            .input, .select, .textarea {
+                width: 100%;
+                padding: 10px 12px;
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                background: rgba(6, 6, 12, 0.9);
+                color: #fff;
+                font-size: 13px;
+                outline: none;
+            }
+
+            .input::placeholder,
+            .textarea::placeholder {
+                color: #777a9f;
+            }
+
+            .textarea {
+                resize: vertical;
+                min-height: 90px;
+            }
+
+            .chips-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .chip-checkbox {
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                cursor: pointer;
+            }
+
+            .chip-checkbox input {
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .chip-label {
+                padding: 6px 12px;
+                border-radius: 999px;
+                border: 1px solid rgba(255, 255, 255, 0.16);
+                font-size: 12px;
+                background: rgba(10, 10, 20, 0.7);
+                color: #e0e0ff;
+                transition: all 0.2s;
+            }
+
+            .chip-checkbox input:checked + .chip-label {
+                background: rgba(102,126,234,0.25);
+                border-color: #667eea;
             }
 
             .inline-fields {
-                flex-direction: column;
+                display: flex;
+                gap: 10px;
             }
-        }
-    </style>
-</head>
-<body>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo" onclick="location.href='index.html'">CoudPulse</div>
-            <ul class="nav-links">
-                <li><a href="index.html#top">Home</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="work.html">Our Work</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <button class="cta-btn" onclick="location.href='contact.html'">Book a Strategy Call</button>
-        </div>
-    </nav>
+            .inline-fields > div {
+                flex: 1;
+            }
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-inner">
-            <div>
-                <div class="breadcrumb">
-                    <a href="index.html">Home</a> · <span>Contact & Project Brief</span>
-                </div>
-                <h1 class="hero-title">
-                    Tell Us About Your <span class="gradient-text">Brand, Campaign or Idea</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Share a few details and we’ll come back with the most suitable approach for your brand, 
-                    whether you’re a coach, business, creator or political leader.  
-                    The more details you share, the better we can help.
-                </p>
-                <div class="hero-tag-row">
-                    <span class="hero-tag">Free 20–30 Min Strategy Call</span>
-                    <span class="hero-tag">No Hard Sales · Just Clarity</span>
-                    <span class="hero-tag">WhatsApp / Call / Email Options</span>
-                </div>
-                <div class="hero-meta">
-                    <span>⏱ Typical response time: within 24 hours</span>
-                    <span>🌍 Clients: India & international</span>
-                </div>
+            .radio-row {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                font-size: 12px;
+                color: #d0d0d0;
+            }
+
+            .radio-row label {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                margin-bottom: 0;
+                color: #d0d0d0;
+            }
+
+            .small-hint {
+                font-size: 11px;
+                color: #9a9abd;
+                margin-top: 2px;
+            }
+
+            .file-input {
+                border: 1px dashed rgba(255, 255, 255, 0.25);
+                background: rgba(9, 9, 18, 0.8);
+                padding: 10px 12px;
+                border-radius: 10px;
+                font-size: 12px;
+                color: #c8c8ff;
+            }
+
+            .submit-row {
+                margin-top: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .submit-btn {
+                padding: 11px 24px;
+                border-radius: 999px;
+                border: none;
+                cursor: pointer;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: #fff;
+                font-size: 13px;
+                font-weight: 600;
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+                transition: all 0.2s;
+            }
+
+            .submit-btn:hover {
+                transform: translateY(-2px);
+            }
+
+            .submit-note {
+                font-size: 11px;
+                color: #9b9bb5;
+            }
+
+            /* Right side info */
+            .side-info-card {
+                padding: 18px 18px 20px;
+                border-radius: 18px;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                margin-bottom: 16px;
+                font-size: 13px;
+                color: #c8c8c8;
+            }
+
+            .side-info-card h3 {
+                font-size: 16px;
+                margin-bottom: 6px;
+            }
+
+            .side-list {
+                list-style: none;
+                margin-top: 6px;
+            }
+
+            .side-list li {
+                margin-bottom: 6px;
+                position: relative;
+                padding-left: 16px;
+                font-size: 12px;
+            }
+
+            .side-list li:before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                color: #7affb9;
+                font-size: 11px;
+            }
+
+            .side-contact-block {
+                margin-top: 6px;
+                font-size: 13px;
+                color: #d0d0ff;
+            }
+
+            .side-contact-block span {
+                display: block;
+            }
+
+            /* Footer */
+            footer {
+                background: #030307;
+                padding: 30px 5% 18px;
+                border-top: 1px solid rgba(255,255,255,0.08);
+            }
+
+            .footer-content {
+                max-width: 1200px;
+                margin: 0 auto 12px;
+                display: flex;
+                justify-content: space-between;
+                gap: 24px;
+                flex-wrap: wrap;
+            }
+
+            .footer-left {
+                max-width: 420px;
+            }
+
+            .footer-left h3 {
+                font-size: 18px;
+                margin-bottom: 6px;
+            }
+
+            .footer-left p {
+                font-size: 13px;
+                color: #b0b0b0;
+            }
+
+            .footer-links {
+                display: flex;
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+
+            .footer-column h4 {
+                font-size: 13px;
+                margin-bottom: 6px;
+            }
+
+            .footer-column ul {
+                list-style: none;
+            }
+
+            .footer-column li {
+                margin-bottom: 4px;
+            }
+
+            .footer-column a {
+                font-size: 12px;
+                color: #b0b0b0;
+            }
+
+            .footer-column a:hover {
+                color: #667eea;
+            }
+
+            .footer-bottom {
+                max-width: 1200px;
+                margin: 0 auto;
+                font-size: 11px;
+                color: #777;
+                text-align: center;
+                border-top: 1px solid rgba(255, 255, 255, 0.06);
+                padding-top: 8px;
+            }
+
+            /* Scroll to top */
+            .scroll-top {
+                position: fixed;
+                bottom: 26px;
+                right: 26px;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 20px;
+                cursor: pointer;
+                opacity: 0;
+                transition: all 0.3s;
+                z-index: 999;
+                box-shadow: 0 6px 25px rgba(102,126,234,0.6);
+            }
+
+            .scroll-top.visible {
+                opacity: 1;
+            }
+
+            .scroll-top:hover {
+                transform: translateY(-4px);
+            }
+
+            /* Responsive */
+            @media (max-width: 1024px) {
+                .hero-inner {
+                    grid-template-columns: 1fr;
+                }
+
+                .form-inner {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .nav-links {
+                    display: none;
+                }
+
+                .hero-title {
+                    font-size: 28px;
+                }
+
+                form {
+                    grid-template-columns: 1fr;
+                }
+
+                .form-full {
+                    grid-column: 1 / 2;
+                }
+
+                .inline-fields {
+                    flex-direction: column;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- Navigation -->
+        <nav id="navbar">
+            <div class="nav-container">
+            <div class="logo" onclick="location.href='index.html'"><img src="logo.png" alt=""></div>
+                <ul class="nav-links">
+                    <li><a href="index.html#top">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="work.html">Our Work</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="cta-btn" onclick="location.href='contact.html'">Book a Strategy Call</button>
             </div>
+        </nav>
 
-            <div class="hero-right-box">
-                <h3>Direct Contact</h3>
-                <p>Prefer to skip the form? You can reach Sujal directly using the details below:</p>
-                <div class="hero-contact-lines">
-                    <span>📞 Call / WhatsApp: <strong>9021272454</strong></span>
-                    <span>📧 Email: <strong>nimbekarsujal90@gmail.com</strong></span>
-                </div>
-                <p style="margin-top:10px;">
-                    Share a short intro about your brand + what you want help with (ads, website, political campaign, etc.).
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Form Section -->
-    <section class="form-section">
-        <div class="form-inner">
-            <!-- Form -->
-            <div class="form-card">
-                <h2>Project Brief Form</h2>
-                <p>Fill this once, and we’ll already have a clear picture before we jump on a call.</p>
-
-                <!-- Note: action="#" for now, integrate with backend or form service later -->
-                <form action="#" method="post">
-                    <!-- Name -->
-                    <div>
-                        <label for="name">Your Name *</label>
-                        <input type="text" id="name" name="name" class="input" placeholder="Full name" required>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-inner">
+                <div>
+                    <div class="breadcrumb">
+                        <a href="index.html">Home</a> · <span>Contact & Project Brief</span>
                     </div>
-
-                    <!-- Brand / Campaign Name -->
-                    <div>
-                        <label for="brand">Brand / Business / Campaign Name *</label>
-                        <input type="text" id="brand" name="brand" class="input" placeholder="e.g. Mind Spa Global / Ward 12 Campaign" required>
+                    <h1 class="hero-title">
+                        Tell Us About Your <span class="gradient-text">Brand, Campaign or Idea</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Share a few details and we’ll come back with the most suitable approach for your brand, 
+                        whether you’re a coach, business, creator or political leader.  
+                        The more details you share, the better we can help.
+                    </p>
+                    <div class="hero-tag-row">
+                        <span class="hero-tag">Free 20–30 Min Strategy Call</span>
+                        <span class="hero-tag">No Hard Sales · Just Clarity</span>
+                        <span class="hero-tag">WhatsApp / Call / Email Options</span>
                     </div>
-
-                    <!-- Email -->
-                    <div>
-                        <label for="email">Email ID *</label>
-                        <input type="email" id="email" name="email" class="input" placeholder="you@example.com" required>
+                    <div class="hero-meta">
+                        <span>⏱ Typical response time: within 24 hours</span>
+                        <span>🌍 Clients: India & international</span>
                     </div>
-
-                    <!-- Phone / WhatsApp -->
-                    <div>
-                        <label for="phone">Phone / WhatsApp Number *</label>
-                        <input type="tel" id="phone" name="phone" class="input" placeholder="+91 ..." required>
-                    </div>
-
-                    <!-- You are a -->
-                    <div class="form-full">
-                        <label>Who are you? *</label>
-                        <div class="chips-row">
-                            <label class="chip-checkbox">
-                                <input type="radio" name="profile_type" value="business" required>
-                                <span class="chip-label">Business / Brand Owner</span>
-                            </label>
-                            <label class="chip-checkbox">
-                                <input type="radio" name="profile_type" value="coach">
-                                <span class="chip-label">Coach / Trainer / Educator</span>
-                            </label>
-                            <label class="chip-checkbox">
-                                <input type="radio" name="profile_type" value="creator">
-                                <span class="chip-label">Influencer / Creator</span>
-                            </label>
-                            <label class="chip-checkbox">
-                                <input type="radio" name="profile_type" value="political">
-                                <span class="chip-label">Political Candidate / Team</span>
-                            </label>
-                            <label class="chip-checkbox">
-                                <input type="radio" name="profile_type" value="agency">
-                                <span class="chip-label">Agency / Partner</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Website / Social -->
-                    <div class="form-full">
-                        <label for="website">Website / Main Social Profile (if any)</label>
-                        <input type="text" id="website" name="website" class="input" placeholder="Website URL or Instagram / Facebook handle">
-                    </div>
-
-                    <!-- Services interested -->
-                    <div class="form-full">
-                        <label>Which services are you interested in? *</label>
-                        <div class="chips-row">
-                            <label class="chip-checkbox">
-                                <input type="checkbox" name="services[]" value="smm" required>
-                                <span class="chip-label">Social Media Management</span>
-                            </label>
-                            <label class="chip-checkbox">
-                                <input type="checkbox" name="services[]" value="meta_ads">
-                                <span class="chip-label">Meta Ads (Facebook / Instagram)</span>
-                            </label>
-                            <label class="chip-checkbox">
-                                <input type="checkbox" name="services[]" value="website">
-                                <span class="chip-label">Website / Landing Pages</span>
-                            </label>
-                            <label class="chip-checkbox">
-                                <input type="checkbox" name="services[]" value="leads">
-                                <span class="chip-label">Lead Generation System</span>
-                            </label>
-                            <label class="chip-checkbox">
-                                <input type="checkbox" name="services[]" value="influencer">
-                                <span class="chip-label">Influencer Marketing</span>
-                            </label>
-                            <label class="chip-checkbox">
-                                <input type="checkbox" name="services[]" value="political_campaign">
-                                <span class="chip-label">Political Campaign Management</span>
-                            </label>
-                            <label class="chip-checkbox">
-                                <input type="checkbox" name="services[]" value="other">
-                                <span class="chip-label">Something Custom</span>
-                            </label>
-                        </div>
-                        <div class="small-hint">You can select multiple services.</div>
-                    </div>
-
-                    <!-- Goal -->
-                    <div class="form-full">
-                        <label for="goal">Main Goal *</label>
-                        <select id="goal" name="goal" class="select" required>
-                            <option value="">Select main goal</option>
-                            <option value="more_leads">Get more leads / inquiries</option>
-                            <option value="more_sales">Increase sales / revenue</option>
-                            <option value="launch_product">Launch a new product / program</option>
-                            <option value="grow_social">Grow social media presence</option>
-                            <option value="political_reach">Increase political reach / awareness</option>
-                            <option value="branding">Improve branding & online presence</option>
-                            <option value="other">Other (will explain below)</option>
-                        </select>
-                    </div>
-
-                    <!-- Budget & Timeline -->
-                    <div>
-                        <label for="budget">Monthly Marketing Budget (Approx.)</label>
-                        <select id="budget" name="budget" class="select">
-                            <option value="">Select range (INR)</option>
-                            <option value="below_10k">Below ₹10,000</option>
-                            <option value="10k_25k">₹10,000 – ₹25,000</option>
-                            <option value="25k_50k">₹25,000 – ₹50,000</option>
-                            <option value="50k_1l">₹50,000 – ₹1,00,000</option>
-                            <option value="above_1l">Above ₹1,00,000</option>
-                            <option value="not_sure">Not sure yet</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="timeline">Ideal Start Timeline</label>
-                        <select id="timeline" name="timeline" class="select">
-                            <option value="">Select</option>
-                            <option value="immediately">Immediately</option>
-                            <option value="2_weeks">Within 2 weeks</option>
-                            <option value="1_month">Within 1 month</option>
-                            <option value="2_3_months">Within 2–3 months</option>
-                            <option value="just_exploring">Just exploring / planning</option>
-                        </select>
-                    </div>
-
-                    <!-- Best contact method & time -->
-                    <div>
-                        <label>Preferred Contact Method</label>
-                        <div class="radio-row">
-                            <label><input type="radio" name="contact_method" value="whatsapp" checked> WhatsApp</label>
-                            <label><input type="radio" name="contact_method" value="call"> Call</label>
-                            <label><input type="radio" name="contact_method" value="email"> Email</label>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="best_time">Best Time to Reach You</label>
-                        <input type="text" id="best_time" name="best_time" class="input" placeholder="e.g. 11am–2pm, Evening after 6pm">
-                    </div>
-
-                    <!-- Project Brief -->
-                    <div class="form-full">
-                        <label for="project_details">Project / Campaign Details *</label>
-                        <textarea id="project_details" name="project_details" class="textarea" placeholder="Briefly explain what you do, your target audience, current situation and what you want CoudPulse to help you with..." required></textarea>
-                    </div>
-
-                    <!-- Past efforts -->
-                    <div class="form-full">
-                        <label for="past_efforts">Have you run any digital marketing before?</label>
-                        <textarea id="past_efforts" name="past_efforts" class="textarea" placeholder="Tell us what you tried before (if anything) – ads, agencies, freelancers, social media, websites, etc. What worked / didn’t work?"></textarea>
-                    </div>
-
-                    <!-- How did you find us -->
-                    <div>
-                        <label for="source">How did you hear about CoudPulse?</label>
-                        <select id="source" name="source" class="select">
-                            <option value="">Select</option>
-                            <option value="referral">Referral / Friend</option>
-                            <option value="instagram">Instagram</option>
-                            <option value="facebook">Facebook</option>
-                            <option value="whatsapp">WhatsApp</option>
-                            <option value="google">Google / Search</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <!-- File upload -->
-                    <div>
-                        <label for="file">Attach Any Brief / Document (optional)</label>
-                        <div class="file-input">
-                            <input type="file" id="file" name="file" style="font-size:12px; width:100%; color:#c8c8ff;">
-                            <div class="small-hint">You can attach a PDF, PPT, or reference document (if your hosting supports file uploads).</div>
-                        </div>
-                    </div>
-
-                    <!-- Extra notes -->
-                    <div class="form-full">
-                        <label for="extra_notes">Anything else we should know?</label>
-                        <textarea id="extra_notes" name="extra_notes" class="textarea" placeholder="Deadlines, important dates (election, launch, webinar), special requirements, etc."></textarea>
-                    </div>
-
-                    <!-- Submit -->
-                    <div class="form-full submit-row">
-                        <button type="submit" class="submit-btn">Submit Brief</button>
-                        <div class="submit-note">
-                            After you submit, we’ll go through your brief and get in touch via WhatsApp, call or email with next steps.
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Right side info -->
-            <div>
-                <div class="side-info-card">
-                    <h3>What Happens After You Submit?</h3>
-                    <ul class="side-list">
-                        <li>We review your brief and check if we’re the right fit.</li>
-                        <li>If yes, we’ll suggest a time for a strategy call.</li>
-                        <li>On the call, we’ll discuss ideas, budgets and timelines.</li>
-                        <li>No pressure to decide immediately – you can think and then confirm.</li>
-                    </ul>
                 </div>
 
-                <div class="side-info-card">
-                    <h3>Best Fits for CoudPulse</h3>
-                    <ul class="side-list">
-                        <li>Brands serious about digital as a long-term growth channel.</li>
-                        <li>Coaches and educators who want predictable leads & enrollments.</li>
-                        <li>E-commerce brands willing to invest in ads + creatives together.</li>
-                        <li>Political teams that understand the power of digital narrative.</li>
-                    </ul>
-                </div>
-
-                <div class="side-info-card">
-                    <h3>Quick Contact</h3>
-                    <div class="side-contact-block">
-                        <span>📞 9021272454</span>
-                        <span>📧 nimbekarsujal90@gmail.com</span>
+                <div class="hero-right-box">
+                    <h3>Direct Contact</h3>
+                    <p>Prefer to skip the form? You can reach Sujal directly using the details below:</p>
+                    <div class="hero-contact-lines">
+                        <span>📞 Call / WhatsApp: <strong>9021272454</strong></span>
+                        <span>📧 Email: <strong>nimbekarsujal90@gmail.com</strong></span>
                     </div>
-                    <p style="margin-top:8px;">
-                        You can also send a short voice note / text on WhatsApp with your name, brand and requirement – Sujal will personally review it.
+                    <p style="margin-top:10px;">
+                        Share a short intro about your brand + what you want help with (ads, website, political campaign, etc.).
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-left">
-                <h3>CoudPulse Digital Solutions</h3>
-                <p>
-                    A modern, performance-first digital agency led by Sujal Anand Nimbekar.  
-                    From social media and websites to funnels and political campaigns – we build systems that convert.
-                </p>
+        <!-- Form Section -->
+        <section class="form-section">
+            <div class="form-inner">
+                <!-- Form -->
+                <div class="form-card">
+                    <h2>Project Brief Form</h2>
+                    <p>Fill this once, and we’ll already have a clear picture before we jump on a call.</p>
+
+                    <!-- Note: action="#" for now, integrate with backend or form service later -->
+                <form name="contact" 
+        method="POST" 
+        data-netlify="true" 
+        netlify-honeypot="bot-field"
+        enctype="multipart/form-data">
+
+        <!-- Netlify required hidden fields -->
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none;">
+            <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+        </p>
+
+        <!-- Name -->
+        <div>
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" class="input" placeholder="Full name" required>
+        </div>
+
+        <!-- Brand / Campaign Name -->
+        <div>
+            <label for="brand">Brand / Business / Campaign Name *</label>
+            <input type="text" id="brand" name="brand" class="input" placeholder="e.g. Mind Spa Global / Ward 12 Campaign" required>
+        </div>
+
+        <!-- Email -->
+        <div>
+            <label for="email">Email ID *</label>
+            <input type="email" id="email" name="email" class="input" placeholder="you@example.com" required>
+        </div>
+
+        <!-- Phone / WhatsApp -->
+        <div>
+            <label for="phone">Phone / WhatsApp Number *</label>
+            <input type="tel" id="phone" name="phone" class="input" placeholder="+91 ..." required>
+        </div>
+
+        <!-- You are a -->
+        <div class="form-full">
+            <label>Who are you? *</label>
+            <div class="chips-row">
+                <label class="chip-checkbox">
+                    <input type="radio" name="profile_type" value="business" required>
+                    <span class="chip-label">Business / Brand Owner</span>
+                </label>
+                <label class="chip-checkbox">
+                    <input type="radio" name="profile_type" value="coach">
+                    <span class="chip-label">Coach / Trainer / Educator</span>
+                </label>
+                <label class="chip-checkbox">
+                    <input type="radio" name="profile_type" value="creator">
+                    <span class="chip-label">Influencer / Creator</span>
+                </label>
+                <label class="chip-checkbox">
+                    <input type="radio" name="profile_type" value="political">
+                    <span class="chip-label">Political Candidate / Team</span>
+                </label>
+                <label class="chip-checkbox">
+                    <input type="radio" name="profile_type" value="agency">
+                    <span class="chip-label">Agency / Partner</span>
+                </label>
             </div>
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h4>Navigate</h4>
-                    <ul>
-                        <li><a href="index.html#top">Home</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="work.html">Our Work</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="tel:9021272454">📞 9021272454</a></li>
-                        <li><a href="mailto:nimbekarsujal90@gmail.com">📧 nimbekarsujal90@gmail.com</a></li>
-                        <li>Founder & CEO: Sujal Anand Nimbekar</li>
-                    </ul>
-                </div>
+        </div>
+
+        <!-- Website / Social -->
+        <div class="form-full">
+            <label for="website">Website / Main Social Profile (if any)</label>
+            <input type="text" id="website" name="website" class="input" placeholder="Website URL or Instagram / Facebook handle">
+        </div>
+
+        <!-- Services interested -->
+        <div class="form-full">
+            <label>Which services are you interested in? *</label>
+            <div class="chips-row">
+                <label class="chip-checkbox">
+                    <input type="checkbox" name="services[]" value="smm" required>
+                    <span class="chip-label">Social Media Management</span>
+                </label>
+                <label class="chip-checkbox">
+                    <input type="checkbox" name="services[]" value="meta_ads">
+                    <span class="chip-label">Meta Ads (Facebook / Instagram)</span>
+                </label>
+                <label class="chip-checkbox">
+                    <input type="checkbox" name="services[]" value="website">
+                    <span class="chip-label">Website / Landing Pages</span>
+                </label>
+                <label class="chip-checkbox">
+                    <input type="checkbox" name="services[]" value="leads">
+                    <span class="chip-label">Lead Generation System</span>
+                </label>
+                <label class="chip-checkbox">
+                    <input type="checkbox" name="services[]" value="influencer">
+                    <span class="chip-label">Influencer Marketing</span>
+                </label>
+                <label class="chip-checkbox">
+                    <input type="checkbox" name="services[]" value="political_campaign">
+                    <span class="chip-label">Political Campaign Management</span>
+                </label>
+                <label class="chip-checkbox">
+                    <input type="checkbox" name="services[]" value="other">
+                    <span class="chip-label">Something Custom</span>
+                </label>
+            </div>
+            <div class="small-hint">You can select multiple services.</div>
+        </div>
+
+        <!-- Goal -->
+        <div class="form-full">
+            <label for="goal">Main Goal *</label>
+            <select id="goal" name="goal" class="select" required>
+                <option value="">Select main goal</option>
+                <option value="more_leads">Get more leads / inquiries</option>
+                <option value="more_sales">Increase sales / revenue</option>
+                <option value="launch_product">Launch a new product / program</option>
+                <option value="grow_social">Grow social media presence</option>
+                <option value="political_reach">Increase political reach / awareness</option>
+                <option value="branding">Improve branding & online presence</option>
+                <option value="other">Other (will explain below)</option>
+            </select>
+        </div>
+
+        <!-- Budget & Timeline -->
+        <div>
+            <label for="budget">Monthly Marketing Budget (Approx.)</label>
+            <select id="budget" name="budget" class="select">
+                <option value="">Select range (INR)</option>
+                <option value="below_10k">Below ₹10,000</option>
+                <option value="10k_25k">₹10,000 – ₹25,000</option>
+                <option value="25k_50k">₹25,000 – ₹50,000</option>
+                <option value="50k_1l">₹50,000 – ₹1,00,000</option>
+                <option value="above_1l">Above ₹1,00,000</option>
+                <option value="not_sure">Not sure yet</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="timeline">Ideal Start Timeline</label>
+            <select id="timeline" name="timeline" class="select">
+                <option value="">Select</option>
+                <option value="immediately">Immediately</option>
+                <option value="2_weeks">Within 2 weeks</option>
+                <option value="1_month">Within 1 month</option>
+                <option value="2_3_months">Within 2–3 months</option>
+                <option value="just_exploring">Just exploring / planning</option>
+            </select>
+        </div>
+
+        <!-- Best contact method & time -->
+        <div>
+            <label>Preferred Contact Method</label>
+            <div class="radio-row">
+                <label><input type="radio" name="contact_method" value="whatsapp" checked> WhatsApp</label>
+                <label><input type="radio" name="contact_method" value="call"> Call</label>
+                <label><input type="radio" name="contact_method" value="email"> Email</label>
             </div>
         </div>
-        <div class="footer-bottom">
-            © <span id="year"></span> CoudPulse Digital Solutions. All rights reserved.
+
+        <div>
+            <label for="best_time">Best Time to Reach You</label>
+            <input type="text" id="best_time" name="best_time" class="input" placeholder="e.g. 11am–2pm, Evening after 6pm">
         </div>
-    </footer>
 
-    <!-- Scroll to top -->
-    <div class="scroll-top" id="scrollTopBtn">↑</div>
+        <!-- Project Brief -->
+        <div class="form-full">
+            <label for="project_details">Project / Campaign Details *</label>
+            <textarea id="project_details" name="project_details" class="textarea" placeholder="Briefly explain what you do, your target audience, current situation and what you want CoudPulse to help you with..." required></textarea>
+        </div>
 
-    <script>
-        const navbar = document.getElementById('navbar');
-        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        <!-- Past efforts -->
+        <div class="form-full">
+            <label for="past_efforts">Have you run any digital marketing before?</label>
+            <textarea id="past_efforts" name="past_efforts" class="textarea" placeholder="Tell us what you tried before (if anything) – ads, agencies, freelancers, social media, websites, etc. What worked / didn’t work?"></textarea>
+        </div>
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                navbar.classList.add('scrolled');
-                scrollTopBtn.classList.add('visible');
-            } else {
-                navbar.classList.remove('scrolled');
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
+        <!-- How did you find us -->
+        <div>
+            <label for="source">How did you hear about CoudPulse?</label>
+            <select id="source" name="source" class="select">
+                <option value="">Select</option>
+                <option value="referral">Referral / Friend</option>
+                <option value="instagram">Instagram</option>
+                <option value="facebook">Facebook</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="google">Google / Search</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
 
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        <!-- File upload -->
+        <div>
+            <label for="file">Attach Any Brief / Document (optional)</label>
+            <div class="file-input">
+                <input type="file" id="file" name="file" style="font-size:12px; width:100%; color:#c8c8ff;">
+                <div class="small-hint">You can attach a PDF, PPT, or reference document.</div>
+            </div>
+        </div>
 
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-</body>
-</html>
+        <!-- Extra notes -->
+        <div class="form-full">
+            <label for="extra_notes">Anything else we should know?</label>
+            <textarea id="extra_notes" name="extra_notes" class="textarea" placeholder="Deadlines, important dates (election, launch, webinar), special requirements, etc."></textarea>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-full submit-row">
+            <button type="submit" class="submit-btn">Submit Brief</button>
+            <div class="submit-note">
+                After you submit, we’ll go through your brief and get in touch via WhatsApp, call or email with next steps.
+            </div>
+        </div>
+    </form>
+
+                </div>
+
+                <!-- Right side info -->
+                <div>
+                    <div class="side-info-card">
+                        <h3>What Happens After You Submit?</h3>
+                        <ul class="side-list">
+                            <li>We review your brief and check if we’re the right fit.</li>
+                            <li>If yes, we’ll suggest a time for a strategy call.</li>
+                            <li>On the call, we’ll discuss ideas, budgets and timelines.</li>
+                            <li>No pressure to decide immediately – you can think and then confirm.</li>
+                        </ul>
+                    </div>
+
+                    <div class="side-info-card">
+                        <h3>Best Fits for CoudPulse</h3>
+                        <ul class="side-list">
+                            <li>Brands serious about digital as a long-term growth channel.</li>
+                            <li>Coaches and educators who want predictable leads & enrollments.</li>
+                            <li>E-commerce brands willing to invest in ads + creatives together.</li>
+                            <li>Political teams that understand the power of digital narrative.</li>
+                        </ul>
+                    </div>
+
+                    <div class="side-info-card">
+                        <h3>Quick Contact</h3>
+                        <div class="side-contact-block">
+                            <span>📞 9021272454</span>
+                            <span>📧 nimbekarsujal90@gmail.com</span>
+                        </div>
+                        <p style="margin-top:8px;">
+                            You can also send a short voice note / text on WhatsApp with your name, brand and requirement – Sujal will personally review it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>CoudPulse Digital Solutions</h3>
+                    <p>
+                        A modern, performance-first digital agency led by Sujal Anand Nimbekar.  
+                        From social media and websites to funnels and political campaigns – we build systems that convert.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navigate</h4>
+                        <ul>
+                            <li><a href="index.html#top">Home</a></li>
+                            <li><a href="index.html#services">Services</a></li>
+                            <li><a href="work.html">Our Work</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="tel:9021272454">📞 9021272454</a></li>
+                            <li><a href="mailto:nimbekarsujal90@gmail.com">📧 nimbekarsujal90@gmail.com</a></li>
+                            <li>Founder & CEO: Sujal Anand Nimbekar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © <span id="year"></span> CoudPulse Digital Solutions. All rights reserved.
+            </div>
+        </footer>
+
+        <!-- Scroll to top -->
+        <div class="scroll-top" id="scrollTopBtn">↑</div>
+
+        <script>
+            const navbar = document.getElementById('navbar');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 80) {
+                    navbar.classList.add('scrolled');
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    navbar.classList.remove('scrolled');
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            document.getElementById('year').textContent = new Date().getFullYear();
+        </script>
+    </body>
+    </html>
