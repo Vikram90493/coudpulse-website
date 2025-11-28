@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoudPulse Digital Solutions - Transform Your Digital Presence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 15px 5%;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+         .logo {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    /* LOGO SIZE CONTROL */
+    .logo img {
+        height: 100px !important;
+        width: auto !important;
+        object-fit: contain;
+        display: block;
+    }
+
+    @media(max-width: 768px) {
+        .logo img { height: 28px !important; }
+    }
+    @media(max-width: 480px) {
+        .logo img { height: 24px !important; }
+    }
+
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.8)); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            font-size: 14px;
+            letter-spacing: 0.4px;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 26px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            white-space: nowrap;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 0 5%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(102, 126, 234, 0.6);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 56px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            padding: 14px 34px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: #fff;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .secondary-btn:hover {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .floating-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 18px;
+            animation: floatCard 3s ease-in-out infinite;
+            transition: all 0.3s;
+        }
+
+        .floating-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-16px); }
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 5%;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 26px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .stat-item p {
+            margin-top: 6px;
+            color: #b0b0b0;
+            font-size: 14px;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: #b0b0b0;
+        }
+
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .service-card p {
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin-bottom: 14px;
+            font-size: 14px;
+        }
+
+        .service-price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 18px;
+        }
+
+        .service-features li {
+            padding: 6px 0;
+            color: #b0b0b0;
+            position: relative;
+            padding-left: 22px;
+            font-size: 14px;
+        }
+
+        .service-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 100px 5%;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .process-timeline {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .process-step {
+            display: flex;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .process-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .process-content {
+            flex: 1;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin: 0 30px;
+            transition: all 0.3s;
+        }
+
+        .process-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .process-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+
+        .portfolio-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            height: 260px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            padding: 24px;
+            transform: translateY(100%);
+            transition: all 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-tag {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .portfolio-overlay p {
+            font-size: 13px;
+            color: #cfcfcf;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 100px 5%;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .testimonials-slider {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 10px 0;
+        }
+
+        .testimonial-card {
+            min-width: 320px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 28px;
+            scroll-snap-align: start;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+        }
+
+        .testimonial-stars {
+            color: #ffd700;
+            font-size: 18px;
+            margin-bottom: 14px;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #b0b0b0;
+            margin-bottom: 14px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .testimonial-role {
+            font-size: 12px;
+            color: #8c8c8c;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            margin-bottom: 28px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons-row {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .cta-secondary {
+            padding: 12px 26px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.8);
+            background: transparent;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(0,0,0,0.12);
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 50px 5% 26px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto 24px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 36px;
+        }
+
+        .footer-about h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .footer-about p {
+            color: #b0b0b0;
+            line-height: 1.6;
+            font-size: 13px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 6px;
+        }
+
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: #667eea;
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b0b0;
+            font-size: 12px;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+            color: #fff;
+            font-size: 22px;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .services-grid,
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-timeline:before {
+                left: 30px;
+            }
+
+            .process-step,
+            .process-step:nth-child(even) {
+                flex-direction: row;
+                padding-left: 70px;
+            }
+
+            .process-number {
+                left: 30px;
+            }
+
+            .process-content {
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 34px;
+            }
+
+            .services-grid,
+            .portfolio-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-slider {
+                padding-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="location.href='index.html'"><img src="logo.png" alt=""></div>
+            <ul class="nav-links">
+                <li><a href="#top">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="work.html">Our Work</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="cta-btn" onclick="location.href='contact.html'">Get Started</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Transform Your <span class="gradient-text">Digital Presence</span> Into Revenue & Influence</h1>
+                <p>
+                    CoudPulse Digital Solutions is a full-service agency led by Sujal Anand Nimbekar, specializing in
+                    ROI-driven marketing, stunning web design, lead funnels and powerful political campaigns.
+                    We don't just build brands — we build businesses and leaders.
+                </p>
+                <div class="hero-buttons">
+                    <button class="primary-btn" onclick="location.href='contact.html'">Book a Free Strategy Call</button>
+                    <button class="secondary-btn" onclick="location.href='work.html'">View Our Work</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card">
+                    <div class="stat-number" data-target="500">0</div>
+                    <div>Projects Delivered</div>
+                </div>
+                <div class="floating-card" style="animation-delay: 0.4s;">
+                    <div class="stat-number" data-target="150">0</div>
+                    <div>Happy Clients</div>
+                </div>
+                <div class="floating-card" style="animation-delay: 0.8s;">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div>Satisfaction Rate (%)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" data-target="5">0</div>
+                <p>Years in the Digital Space</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="1000">0</div>
+                <p>Leads Generated Across Campaigns</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="50">0</div>
+                <p>Active Campaigns Managed</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="24">0</div>
+                <p>Hours Support Window</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <h2>Our <span class="gradient-text">Services</span></h2>
+            <p>Full-funnel, performance-focused digital solutions for brands, creators & political leaders.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Social Media Management</h3>
+                <p>Done-for-you social media management that keeps your brand visible, consistent and engaging.</p>
+                <div class="service-price">₹6,000/mo</div>
+                <ul class="service-features">
+                    <li>12 posts per month (3/week)</li>
+                    <li>Instagram, Facebook, Twitter/X management</li>
+                    <li>Caption writing & hashtag strategy</li>
+                    <li>2 ad campaigns per month</li>
+                    <li>Monthly analytics report</li>
+                </ul>
+                <button class="primary-btn" onclick="location.href='contact.html'">Get Started</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Meta Ads</h3>
+                <p>ROI-focused ad campaigns across Facebook, Instagram & Audience Network.</p>
+                <div class="service-price">₹8,000/mo</div>
+                <ul class="service-features">
+                    <li>3 campaigns per month</li>
+                    <li>Up to 6 ad variations per campaign</li>
+                    <li>Up to 3 audience groups</li>
+                    <li>Weekly optimization & A/B testing</li>
+                    <li>Copywriting & creative direction</li>
+                </ul>
+                <button class="primary-btn" onclick="location.href='contact.html'">Launch Campaigns</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Website Design & Development</h3>
+                <p>High-converting, modern websites that look good and sell better.</p>
+                <div class="service-price">Custom Quote</div>
+                <ul class="service-features">
+                    <li>WordPress, HTML & custom builds</li>
+                    <li>Landing pages & sales funnels</li>
+                    <li>UI/UX focused layouts</li>
+                    <li>Mobile responsive & speed optimized</li>
+                    <li>Lead conversion-friendly structures</li>
+                </ul>
+                <button class="primary-btn" onclick="location.href='contact.html'">Discuss Your Website</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🚀</div>
+                <h3>Lead Generation</h3>
+                <p>Predictable lead systems for coaches, local businesses & education brands.</p>
+                <div class="service-price">₹12,000/mo</div>
+                <ul class="service-features">
+                    <li>2 email campaigns per month</li>
+                    <li>2 high-converting landing pages</li>
+                    <li>100+ guaranteed leads/month</li>
+                    <li>CRM setup & workflow automation</li>
+                    <li>Email nurturing sequences</li>
+                </ul>
+                <button class="primary-btn" onclick="location.href='contact.html'">Build My Funnel</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⭐</div>
+                <h3>Influencer Marketing</h3>
+                <p>Creator-led campaigns that build trust, relevance and social proof.</p>
+                <div class="service-price">Custom Quote</div>
+                <ul class="service-features">
+                    <li>Influencer research & shortlisting</li>
+                    <li>Negotiations & campaign planning</li>
+                    <li>Performance tracking & reporting</li>
+                    <li>Brand collaboration management</li>
+                    <li>UGC content strategy</li>
+                </ul>
+                <button class="primary-btn" onclick="location.href='contact.html'">Plan a Campaign</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🗳️</div>
+                <h3>Political Campaign Management</h3>
+                <p>End-to-end digital political campaigns that drive awareness, influence & votes.</p>
+                <div class="service-price">Custom Quote</div>
+                <ul class="service-features">
+                    <li>Voter-targeted ad campaigns</li>
+                    <li>Political reels, posters & creatives</li>
+                    <li>Reputation & narrative management</li>
+                    <li>WhatsApp & SMS broadcast campaigns</li>
+                    <li>Digital war-room & volunteer coordination</li>
+                </ul>
+                <button class="primary-btn" onclick="location.href='contact.html'">Start Political Campaign</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section" id="process">
+        <div class="section-header">
+            <h2>Our <span class="gradient-text">Process</span></h2>
+            <p>From idea to execution — we handle everything so you can focus on growth.</p>
+        </div>
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="process-content">
+                    <h3>1. Discovery & Strategy</h3>
+                    <p>We start by understanding your business, offers, audience and goals. Then we build a clear, data-backed strategy aligned with revenue or influence outcomes.</p>
+                </div>
+                <div class="process-number">1</div>
+            </div>
+
+            <div class="process-step">
+                <div class="process-content">
+                    <h3>2. Creative & Funnel Setup</h3>
+                    <p>We design creatives, pages and funnels that match your brand voice and convert: websites, landing pages, reels, ad creatives and more.</p>
+                </div>
+                <div class="process-number">2</div>
+            </div>
+
+            <div class="process-step">
+                <div class="process-content">
+                    <h3>3. Launch & Optimization</h3>
+                    <p>We launch campaigns, monitor performance closely and optimize targeting, creatives and pages based on real-time data.</p>
+                </div>
+                <div class="process-number">3</div>
+            </div>
+
+            <div class="process-step">
+                <div class="process-content">
+                    <h3>4. Scale & Grow</h3>
+                    <p>Once we find winning combinations, we help you scale safely, expand to new audiences and build long-term digital assets that keep performing.</p>
+                </div>
+                <div class="process-number">4</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section" id="portfolio">
+        <div class="section-header">
+            <h2>Work That <span class="gradient-text">Performs</span></h2>
+            <p>A snapshot of campaigns and brands we've helped grow.</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item" onclick="location.href='work-mindspa.html'">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-tag">Mind Spa Global</div>
+                    <h3>Holistic Brand & Funnel Setup</h3>
+                    <p>Social media, webinar funnels, landing pages and automation for a wellness brand.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" onclick="location.href='work-locksoffer.html'">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-tag">Locksoffer App</div>
+                    <h3>App Launch & Growth</h3>
+                    <p>App promotion campaigns, creatives and lead generation for a growing platform.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" onclick="location.href='work-education.html'">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-tag">Education Funnels</div>
+                    <h3>₹99 Webinar Ecosystems</h3>
+                    <p>Landing pages, automation and lead funnels to fill live workshops & courses.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" onclick="location.href='work-ecommerce.html'">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-tag">E-Commerce</div>
+                    <h3>Conversion-Focused Ad Creatives</h3>
+                    <p>Product ads, catalog creatives and influencer support for D2C brands.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" onclick="location.href='work-coaches.html'">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-tag">Coaches & Trainers</div>
+                    <h3>Digital Product Ecosystems</h3>
+                    <p>Course setup, funnels, email systems and lead campaigns.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" onclick="location.href='work-political.html'">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-tag">Political Campaigns</div>
+                    <h3>Voter Outreach & Image Building</h3>
+                    <p>Reels, targeted ads, WhatsApp broadcasting and volunteer coordination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-header">
+            <h2>Clients Who <span class="gradient-text">Trust Us</span></h2>
+            <p>Real brands. Real campaigns. Real results.</p>
+        </div>
+        <div class="testimonials-slider" id="testimonialsSlider">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">“CoudPulse helped us set up our webinar funnels and social presence from scratch. We consistently filled our online batches and finally had a system that worked on autopilot.”</p>
+                <div class="testimonial-author">Founder, Education Brand</div>
+                <div class="testimonial-role">Coaching & Online Courses</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">“Their Meta Ads and landing pages gave us a steady flow of high-quality leads. Reporting was transparent and every decision was data-backed.”</p>
+                <div class="testimonial-author">Owner, Local Service Business</div>
+                <div class="testimonial-role">Lead Generation & Growth</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">“For our political campaign, CoudPulse managed everything — from reels and posters to ad campaigns and volunteer coordination. The digital buzz they created was next level.”</p>
+                <div class="testimonial-author">Political Candidate</div>
+                <div class="testimonial-role">Election Campaign Management</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready To Grow With <span class="gradient-text">CoudPulse?</span></h2>
+            <p>Whether you’re a startup, coach, e-commerce brand or political leader — we help you turn attention into measurable results.</p>
+            <div class="cta-buttons-row">
+                <button class="primary-btn" onclick="location.href='contact.html'">Get Free Strategy Call</button>
+                <button class="cta-secondary" onclick="location.href='work.html'">Explore Our Work</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>CoudPulse Digital Solutions</h3>
+                <p>
+                    CoudPulse is a modern, result-focused digital agency founded by Sujal Anand Nimbekar.  
+                    We combine creative storytelling, sharp design and performance marketing to help you grow faster online — 
+                    from social media and funnels to political campaigns.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#top">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="work.html">Our Work</a></li>
+                    <li><a href="#process">Process</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About CoudPulse</a></li>
+                    <li><a href="contact.html">Contact & Brief</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:9021272454">📞 9021272454</a></li>
+                    <li><a href="mailto:nimbekarsujal90@gmail.com">📧 nimbekarsujal90@gmail.com</a></li>
+                    <li>Founder & CEO: Sujal Anand Nimbekar</li>
+                    <li>India · Working with clients worldwide</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © <span id="year"></span> CoudPulse Digital Solutions. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTopBtn">↑</div>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar shrink & scroll-top visibility
+        const navbar = document.getElementById('navbar');
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+                scrollTopBtn.classList.add('visible');
+            } else {
+                navbar.classList.remove('scrolled');
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Particle background
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 60;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            const size = Math.random() * 4 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDuration = 10 + Math.random() * 15 + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Animated stats counter
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let statsStarted = false;
+
+        function animateStats() {
+            if (statsStarted) return;
+            const statsSection = document.querySelector('.stats-section');
+            const rect = statsSection.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                statsStarted = true;
+                statNumbers.forEach(num => {
+                    const target = parseInt(num.getAttribute('data-target'), 10);
+                    let current = 0;
+                    const increment = Math.max(1, Math.floor(target / 200));
+                    const interval = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(interval);
+                        }
+                        num.textContent = current;
+                    }, 15);
+                });
+            }
+        }
+
+        window.addEventListener('scroll', animateStats);
+        window.addEventListener('load', animateStats);
+
+        // Auto-scrolling testimonials
+const testimonialSlider = document.getElementById('testimonialsSlider');
+
+function autoScrollTestimonials() {
+    if (!testimonialSlider) return;
+
+    const cards = testimonialSlider.querySelectorAll('.testimonial-card');
+    if (cards.length === 0) return;
+
+    const gap = 24; // same as CSS gap
+    const cardWidth = cards[0].offsetWidth + gap;
+
+    // If we're near the end, go back to start
+    if (testimonialSlider.scrollLeft + testimonialSlider.clientWidth >= testimonialSlider.scrollWidth - cardWidth) {
+        testimonialSlider.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+        testimonialSlider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    }
+}
+
+// scroll every 4 seconds
+setInterval(autoScrollTestimonials, 4000);
+
+    </script>
+</body>
+</html>

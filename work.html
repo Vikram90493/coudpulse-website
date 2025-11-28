@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work - CoudPulse Digital Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 15px 5%;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            font-size: 14px;
+            letter-spacing: 0.4px;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 26px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+            background: radial-gradient(circle at top left, #22235a 0%, #0a0a0a 55%, #000000 100%);
+            padding-top: 120px;
+        }
+
+        .hero-inner {
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 44px;
+            margin-bottom: 16px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+        }
+
+        .hero-badge-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 13px;
+            color: #d0d0d0;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* Work Grid Section */
+        .work-section {
+            padding: 80px 5% 60px;
+            background: linear-gradient(145deg, #0a0a0a 0%, #151528 50%, #0a0a0a 100%);
+        }
+
+        .section-header {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .section-header-left h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .section-header-left p {
+            color: #b0b0b0;
+            font-size: 15px;
+        }
+
+        .section-header-right {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-pill {
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.02);
+            color: #d0d0d0;
+            transition: all 0.25s;
+        }
+
+        .filter-pill.active,
+        .filter-pill:hover {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.12);
+            color: #fff;
+        }
+
+        .work-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .work-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: radial-gradient(circle at top left, rgba(102,126,234,0.18), rgba(0,0,0,0.95));
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            padding: 22px 22px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            border-color: rgba(102, 126, 234, 0.6);
+        }
+
+        .work-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        .work-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .work-meta {
+            font-size: 13px;
+            color: #b0b0b0;
+            margin-bottom: 12px;
+        }
+
+        .work-services {
+            font-size: 12px;
+            color: #9f9fff;
+            margin-bottom: 14px;
+        }
+
+        .work-results {
+            font-size: 13px;
+            color: #d5ffd5;
+            margin-bottom: 16px;
+        }
+
+        .work-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #a0a0a0;
+        }
+
+        .case-study-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .case-study-label span.arrow {
+            font-size: 16px;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 11px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 70px 5% 90px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .cta-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-inner h2 {
+            font-size: 34px;
+            margin-bottom: 14px;
+        }
+
+        .cta-inner p {
+            font-size: 16px;
+            margin-bottom: 26px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-light,
+        .btn-outline {
+            padding: 12px 26px;
+            border-radius: 999px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .btn-light {
+            background: #0a0a0a;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-light:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 0, 0, 0.12);
+        }
+
+        /* Footer */
+        footer {
+            background: #050505;
+            padding: 40px 5% 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-left {
+            max-width: 420px;
+        }
+
+        .footer-left h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .footer-left p {
+            font-size: 14px;
+            color: #b0b0b0;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 6px;
+        }
+
+        .footer-column a {
+            color: #b0b0b0;
+            font-size: 13px;
+            text-decoration: none;
+            transition: all 0.25s;
+        }
+
+        .footer-column a:hover {
+            color: #667eea;
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 12px;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+            color: #fff;
+            font-size: 22px;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .work-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-inner h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="location.href='index.html'">CoudPulse</div>
+            <ul class="nav-links">
+                <li><a href="index.html#top">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="work.html">Our Work</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="cta-btn" onclick="location.href='contact.html'">Book a Call</button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <h1 class="hero-title">Our <span class="gradient-text">Work & Case Studies</span></h1>
+            <p class="hero-subtitle">
+                Real brands, real campaigns, real numbers.  
+                From coaches and e-commerce brands to political campaigns — CoudPulse builds
+                systems that convert attention into revenue and influence.
+            </p>
+            <div class="hero-badge-row">
+                <div class="hero-badge">⚡ ROI-Focused Campaigns</div>
+                <div class="hero-badge">📱 Social + Funnels + Ads</div>
+                <div class="hero-badge">🗳 Political Campaign Management</div>
+                <div class="hero-badge">🌍 Clients Across Industries</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Grid -->
+    <section class="work-section">
+        <div class="section-header">
+            <div class="section-header-left">
+                <h2>Featured <span class="gradient-text">Projects</span></h2>
+                <p>Explore how we’ve helped brands, creators and candidates grow with performance-first digital strategies.</p>
+            </div>
+            <div class="section-header-right">
+                <button class="filter-pill active">All</button>
+                <button class="filter-pill">Coaches & Education</button>
+                <button class="filter-pill">E-Commerce</button>
+                <button class="filter-pill">Apps & Startups</button>
+                <button class="filter-pill">Political</button>
+            </div>
+        </div>
+
+        <div class="work-grid">
+            <!-- Mind Spa Global -->
+            <div class="work-card" onclick="location.href='work-mindspa.html'">
+                <div class="work-tag">Coaching · Wellness</div>
+                <div class="work-title">Mind Spa Global</div>
+                <div class="work-meta">Branding · Webinar Funnels · Social Media · Paid Ads</div>
+                <div class="work-services">
+                    Services used: Social Media Management, Meta Ads, Landing Pages, Email Automation
+                </div>
+                <div class="work-results">
+                    Result: Consistent webinar registrations & course enrollments with an automated funnel.
+                </div>
+                <div class="work-footer">
+                    <div class="case-study-label">
+                        <span>View case study</span>
+                        <span class="arrow">↗</span>
+                    </div>
+                    <div class="badge">Lead Generation</div>
+                </div>
+            </div>
+
+            <!-- Locksoffer App -->
+            <div class="work-card" onclick="location.href='work-locksoffer.html'">
+                <div class="work-tag">App · Startup</div>
+                <div class="work-title">Locksoffer App</div>
+                <div class="work-meta">App Promotion · Creatives · Paid Campaigns</div>
+                <div class="work-services">
+                    Services used: Social Media Marketing, Meta Ads, Creative Design
+                </div>
+                <div class="work-results">
+                    Result: Increase in app installs and active users through targeted campaigns.
+                </div>
+                <div class="work-footer">
+                    <div class="case-study-label">
+                        <span>View case study</span>
+                        <span class="arrow">↗</span>
+                    </div>
+                    <div class="badge">User Growth</div>
+                </div>
+            </div>
+
+            <!-- Education Funnel -->
+            <div class="work-card" onclick="location.href='work-education.html'">
+                <div class="work-tag">Education · Webinars</div>
+                <div class="work-title">Education Webinar Funnels</div>
+                <div class="work-meta">₹99 Webinar · Funnels · Email Automation</div>
+                <div class="work-services">
+                    Services used: Landing Page Design, Lead Generation, Email Nurturing
+                </div>
+                <div class="work-results">
+                    Result: High attendance webinar funnels with predictable course sales.
+                </div>
+                <div class="work-footer">
+                    <div class="case-study-label">
+                        <span>View case study</span>
+                        <span class="arrow">↗</span>
+                    </div>
+                    <div class="badge">Coaches & Trainers</div>
+                </div>
+            </div>
+
+            <!-- E-Commerce Clients -->
+            <div class="work-card" onclick="location.href='work-ecommerce.html'">
+                <div class="work-tag">E-Commerce</div>
+                <div class="work-title">D2C & E-Commerce Brands</div>
+                <div class="work-meta">Product Ads · Catalog Creatives · Influencer Collabs</div>
+                <div class="work-services">
+                    Services used: Meta Ads, Social Media Management, Influencer Marketing
+                </div>
+                <div class="work-results">
+                    Result: Improved ROAS, higher average order value and repeat customers.
+                </div>
+                <div class="work-footer">
+                    <div class="case-study-label">
+                        <span>View case study</span>
+                        <span class="arrow">↗</span>
+                    </div>
+                    <div class="badge">Performance Marketing</div>
+                </div>
+            </div>
+
+            <!-- Coaches & Trainers -->
+            <div class="work-card" onclick="location.href='work-coaches.html'">
+                <div class="work-tag">Coaches · Trainers</div>
+                <div class="work-title">Coaches & Trainers Ecosystem</div>
+                <div class="work-meta">Course Setup · Funnels · Email Systems</div>
+                <div class="work-services">
+                    Services used: Website/Landing Pages, Lead Generation, Automation Systems
+                </div>
+                <div class="work-results">
+                    Result: Complete digital product ecosystem with automated lead follow-up.
+                </div>
+                <div class="work-footer">
+                    <div class="case-study-label">
+                        <span>View case study</span>
+                        <span class="arrow">↗</span>
+                    </div>
+                    <div class="badge">Digital Products</div>
+                </div>
+            </div>
+
+            <!-- Political Campaigns -->
+            <div class="work-card" onclick="location.href='work-political.html'">
+                <div class="work-tag">Political · Campaigns</div>
+                <div class="work-title">Political Campaign Management</div>
+                <div class="work-meta">Reels · Voter Ads · WhatsApp Broadcasts</div>
+                <div class="work-services">
+                    Services used: Political Campaign Management, Meta Ads, Content Creation, Volunteer Digi-Co-ordination
+                </div>
+                <div class="work-results">
+                    Result: Increased digital visibility, strong narrative control and better voter connect.
+                </div>
+                <div class="work-footer">
+                    <div class="case-study-label">
+                        <span>View case study</span>
+                        <span class="arrow">↗</span>
+                    </div>
+                    <div class="badge">Election Focused</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-inner">
+            <h2>Want Your Brand To Be Our Next <span class="gradient-text">Case Study?</span></h2>
+            <p>
+                Whether you’re a startup, coach, e-commerce brand or political leader — CoudPulse designs digital systems
+                that don’t just look good, they perform. Let’s discuss your next campaign.
+            </p>
+            <div class="cta-buttons">
+                <button class="btn-light" onclick="location.href='contact.html'">Book a Free Strategy Call</button>
+                <button class="btn-outline" onclick="location.href='index.html#services'">View Services</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <h3>CoudPulse Digital Solutions</h3>
+                <p>
+                    Full-service digital agency founded by Sujal Anand Nimbekar.  
+                    We combine creative storytelling, sharp design and performance marketing to help you grow faster — online.
+                </p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="index.html#top">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="work.html">Our Work</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="index.html#services">Social Media Management</a></li>
+                        <li><a href="index.html#services">Meta Ads</a></li>
+                        <li><a href="index.html#services">Website Development</a></li>
+                        <li><a href="index.html#services">Lead Generation</a></li>
+                        <li><a href="index.html#services">Influencer Marketing</a></li>
+                        <li><a href="index.html#services">Political Campaigns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:9021272454">📞 9021272454</a></li>
+                        <li><a href="mailto:nimbekarsujal90@gmail.com">📧 nimbekarsujal90@gmail.com</a></li>
+                        <li>Founder & CEO: Sujal Anand Nimbekar</li>
+                        <li>India · Working with brands across industries</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © <span id="year"></span> CoudPulse Digital Solutions. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTopBtn">↑</div>
+
+    <script>
+        // Navbar scroll behavior
+        const navbar = document.getElementById('navbar');
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+                scrollTopBtn.classList.add('visible');
+            } else {
+                navbar.classList.remove('scrolled');
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

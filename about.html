@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About CoudPulse - Sujal Nimbekar | CoudPulse Digital Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #050509;
+            color: #fff;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 5, 10, 0.96);
+            backdrop-filter: blur(10px);
+            padding: 18px 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 12px 5%;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 26px;
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: #f5f5f5;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.25s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            padding: 10px 24px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 120px 5% 70px;
+            background: radial-gradient(circle at top left, #282a62 0%, #050509 55%, #000000 100%);
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.8fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .breadcrumb {
+            font-size: 13px;
+            color: #8f8f8f;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb a {
+            color: #c9c9ff;
+        }
+
+        .hero-title {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 15px;
+            color: #c0c0c0;
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
+        .hero-tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .hero-tag {
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(5, 5, 10, 0.5);
+            color: #d8d8ff;
+        }
+
+        .hero-meta {
+            font-size: 13px;
+            color: #b0b0b0;
+        }
+
+        .hero-meta span {
+            display: inline-block;
+            margin-right: 12px;
+        }
+
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .profile-card {
+            padding: 18px;
+            border-radius: 20px;
+            background: radial-gradient(circle at top, rgba(102,126,234,0.25), rgba(5,5,10,0.95));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 100px;
+            height: 150px;
+            border-radius: 20px;
+            background: #111222;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid rgba(255,255,255,0.15);
+            overflow: hidden;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .profile-info-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .profile-info-role {
+            font-size: 13px;
+            color: #d1d1ff;
+            margin-bottom: 8px;
+        }
+
+        .profile-info-text {
+            font-size: 13px;
+            color: #d0d0d0;
+        }
+
+        .profile-meta {
+            font-size: 12px;
+            color: #aaaaaa;
+            margin-top: 6px;
+        }
+
+        .profile-meta span {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .mini-info-card {
+            padding: 14px 16px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 13px;
+            color: #d6d6ff;
+        }
+
+        /* Main content sections */
+        .content {
+            padding: 30px 5% 80px;
+            background: #050509;
+        }
+
+        .content-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2.2fr 1.1fr;
+            gap: 40px;
+        }
+
+        .content-section {
+            margin-bottom: 28px;
+        }
+
+        .content-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .content-section p {
+            font-size: 14px;
+            color: #c4c4c4;
+            line-height: 1.8;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .pill {
+            padding: 5px 12px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            font-size: 12px;
+            color: #e0e0ff;
+        }
+
+        .list {
+            list-style: none;
+            font-size: 14px;
+            color: #c8c8c8;
+            margin-top: 8px;
+        }
+
+        .list li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 6px;
+        }
+
+        .list li:before {
+            content: "•";
+            position: absolute;
+            left: 4px;
+            color: #8f94ff;
+        }
+
+        .two-column-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 30px;
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .two-column-list li {
+            position: relative;
+            padding-left: 16px;
+            font-size: 13px;
+            color: #c8c8ff;
+        }
+
+        .two-column-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #7affb9;
+            font-size: 11px;
+        }
+
+        .highlight-box {
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 13px;
+            color: #dcdcff;
+            margin-top: 8px;
+        }
+
+        .highlight-title {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        /* Right side column */
+        aside .side-card {
+            margin-bottom: 20px;
+            padding: 16px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        aside .side-card h4 {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .side-list {
+            list-style: none;
+            font-size: 13px;
+            color: #c8c8c8;
+        }
+
+        .side-list li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .side-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #7affb9;
+            font-size: 11px;
+        }
+
+        .contact-mini {
+            font-size: 13px;
+            color: #d0d0ff;
+            margin-top: 6px;
+        }
+
+        .contact-mini span {
+            display: block;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 50px 5% 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .cta-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-inner h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .cta-inner p {
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-dark,
+        .btn-outline {
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-dark {
+            background: #050509;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-dark:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0,0,0,0.12);
+        }
+
+        /* Footer */
+        footer {
+            background: #030307;
+            padding: 30px 5% 18px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto 12px;
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-left {
+            max-width: 420px;
+        }
+
+        .footer-left h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .footer-left p {
+            font-size: 13px;
+            color: #b0b0b0;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column h4 {
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 4px;
+        }
+
+        .footer-column a {
+            font-size: 12px;
+            color: #b0b0b0;
+        }
+
+        .footer-column a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 11px;
+            color: #777;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 8px;
+        }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 6px 25px rgba(102,126,234,0.6);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .content-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+            }
+
+            .two-column-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="location.href='index.html'">CoudPulse</div>
+            <ul class="nav-links">
+                <li><a href="index.html#top">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="work.html">Our Work</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="cta-btn" onclick="location.href='contact.html'">Book a Strategy Call</button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div>
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a> · <span>About CoudPulse</span>
+                </div>
+                <h1 class="hero-title">
+                    The Team Behind <span class="gradient-text">CoudPulse Digital Solutions</span>
+                </h1>
+                <p class="hero-subtitle">
+                    CoudPulse Digital Solutions is a modern, performance-driven digital agency founded by 
+                    <strong>Sujal Anand Nimbekar</strong>.  
+                    We help brands, startups, educators, creators and political leaders grow using social media, 
+                    Meta ads, funnels and creative storytelling.
+                </p>
+                <div class="hero-tag-row">
+                    <span class="hero-tag">Full-Service Digital Agency</span>
+                    <span class="hero-tag">ROI-Focused Campaigns</span>
+                    <span class="hero-tag">Political Campaign Management</span>
+                    <span class="hero-tag">Coaches, Creators & SMEs</span>
+                </div>
+                <div class="hero-meta">
+                    <span>📍 Based in India, working with clients across industries</span><br>
+                    <span>🔥 Focus: Performance, clarity & speed in execution</span>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <!-- Founder Card -->
+                <div class="profile-card">
+                    <div class="profile-photo">
+                        <!-- Replace 'your-photo.jpg' with your actual image file -->
+                        <!-- Example: <img src="sujal-nimbekar.jpg" alt="Sujal Anand Nimbekar"> -->
+                        <img src="sujal.png" alt="Sujal Anand Nimbekar">
+                    </div>
+                    <div>
+                        <div class="profile-info-name">Sujal Anand Nimbekar</div>
+                        <div class="profile-info-role">CEO & Founder · CoudPulse Digital Solutions</div>
+                        <div class="profile-info-text">
+                            Entrepreneur, strategist and campaign architect behind CoudPulse. 
+                            Passionate about building digital-first brands and high-converting online systems.
+                        </div>
+                        <div class="profile-meta">
+                            <span>📞 9021272454</span>
+                            <span>📧 nimbekarsujal90@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agency Mini Info -->
+                <div class="mini-info-card">
+                    <strong>What CoudPulse Stands For</strong><br>
+                    Creativity + Performance + Clarity.  
+                    We don’t just post content, we design journeys — from first impression to lead, and from lead to loyal customer or supporter.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="content">
+        <div class="content-inner">
+            <!-- Left Column -->
+            <div>
+                <div class="content-section">
+                    <h3>The Story of CoudPulse</h3>
+                    <p>
+                        CoudPulse started with a simple observation – most small & medium businesses, coaches and 
+                        even political candidates were active online, but their digital efforts weren’t structured, 
+                        trackable or truly growth-focused.
+                    </p>
+                    <p>
+                        Sujal built CoudPulse as a <strong>full-stack digital partner</strong> – not just to design 
+                        nice-looking posts or websites, but to create systems with clear outcomes: more leads, more 
+                        sales, more reach, or more voter awareness.
+                    </p>
+                </div>
+
+                <div class="content-section">
+                    <h3>Who We Work Best With</h3>
+                    <p>
+                        CoudPulse works with clients who are serious about growth and ready to treat digital as 
+                        their main growth engine, not just an optional add-on.
+                    </p>
+                    <ul class="list">
+                        <li>Coaches, trainers and educators selling courses, workshops or webinars.</li>
+                        <li>Local businesses and service providers who want consistent leads.</li>
+                        <li>E-commerce and product brands looking for performance-driven campaigns.</li>
+                        <li>Influencers and creators looking to grow and monetize their audience.</li>
+                        <li>Political candidates who want structured digital influence and narrative control.</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3>How We Think About Marketing</h3>
+                    <div class="highlight-box">
+                        <div class="highlight-title">Every click should have a job.</div>
+                        <p>
+                            Whether it’s a reel, a landing page or an ad – everything we create has a clear purpose: 
+                            awareness, trust, or conversion. No random posts. No vanity metrics. Only meaningful actions.
+                        </p>
+                    </div>
+                    <div class="pill-row">
+                        <span class="pill">Strategy First</span>
+                        <span class="pill">Creative + Data</span>
+                        <span class="pill">Execution Speed</span>
+                        <span class="pill">Transparent Reporting</span>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3>Core Strengths of CoudPulse</h3>
+                    <ul class="two-column-list">
+                        <li>ROI-focused digital marketing</li>
+                        <li>Fast delivery & responsive communication</li>
+                        <li>Modern design with strong storytelling</li>
+                        <li>End-to-end funnel & campaign execution</li>
+                        <li>Data-backed political ad targeting</li>
+                        <li>Affordable and value-driven pricing</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3>How We Work With You</h3>
+                    <p>
+                        No over-complicated jargon. We keep the process simple, collaborative and clear:
+                    </p>
+                    <ul class="list">
+                        <li><strong>Listen:</strong> Understand your goals, offers, audience and timeline.</li>
+                        <li><strong>Plan:</strong> Recommend the right mix – social media, ads, funnels, landing pages or campaigns.</li>
+                        <li><strong>Execute:</strong> Create content, launch campaigns and set up tracking.</li>
+                        <li><strong>Optimize:</strong> Improve based on numbers, not guesswork.</li>
+                        <li><strong>Scale:</strong> Once we have winners, we focus on scaling safely and profitably.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Column (Side Cards) -->
+            <aside>
+                <div class="side-card">
+                    <h4>Founder Snapshot</h4>
+                    <ul class="side-list">
+                        <li>Hands-on in strategy, creatives and campaigns.</li>
+                        <li>Understands both business & ground reality.</li>
+                        <li>Comfortable working with teams & solo founders.</li>
+                    </ul>
+                </div>
+
+                <div class="side-card">
+                    <h4>Services At a Glance</h4>
+                    <ul class="side-list">
+                        <li>Social Media Management</li>
+                        <li>Meta Ads (Facebook, Instagram)</li>
+                        <li>Website Design & Development</li>
+                        <li>Lead Generation Systems</li>
+                        <li>Influencer Campaigns</li>
+                        <li>Political Campaign Management</li>
+                    </ul>
+                </div>
+
+                <div class="side-card">
+                    <h4>Let’s Connect</h4>
+                    <div class="contact-mini">
+                        <span>📞 9021272454</span>
+                        <span>📧 nimbekarsujal90@gmail.com</span>
+                    </div>
+                    <p style="margin-top:8px;font-size:13px;color:#c8c8c8;">
+                        Prefer WhatsApp or a quick call? Reach out and we’ll understand your requirements before suggesting anything.
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-inner">
+            <h2>Want CoudPulse To Lead Your Next Campaign?</h2>
+            <p>
+                Whether you’re launching a course, scaling an e-commerce brand or planning a political campaign, 
+                let’s talk about how we can make digital work harder for you.
+            </p>
+            <div class="cta-buttons">
+                <button class="btn-dark" onclick="location.href='contact.html'">Talk to Sujal</button>
+                <button class="btn-outline" onclick="location.href='work.html'">See Our Work</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <h3>CoudPulse Digital Solutions</h3>
+                <p>
+                    A modern, performance-first digital agency led by Sujal Anand Nimbekar.  
+                    From social media and websites to funnels and political campaigns – we build systems that convert.
+                </p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="index.html#top">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="work.html">Our Work</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:9021272454">📞 9021272454</a></li>
+                        <li><a href="mailto:nimbekarsujal90@gmail.com">📧 nimbekarsujal90@gmail.com</a></li>
+                        <li>Founder & CEO: Sujal Anand Nimbekar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © <span id="year"></span> CoudPulse Digital Solutions. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll to top -->
+    <div class="scroll-top" id="scrollTopBtn">↑</div>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+                scrollTopBtn.classList.add('visible');
+            } else {
+                navbar.classList.remove('scrolled');
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

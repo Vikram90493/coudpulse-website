@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study - Education Webinar Funnels | CoudPulse Digital Solutions</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;overflow-x:hidden;background:#050509;color:#fff}
+        a{text-decoration:none;color:inherit}
+
+        nav{position:fixed;top:0;width:100%;background:rgba(5,5,10,0.96);backdrop-filter:blur(10px);padding:18px 5%;z-index:1000;border-bottom:1px solid rgba(255,255,255,0.07);transition:all .3s ease}
+        nav.scrolled{padding:12px 5%;box-shadow:0 5px 30px rgba(0,0,0,.6)}
+        .nav-container{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+        .logo{font-size:26px;font-weight:700;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer}
+        .nav-links{display:flex;gap:26px;list-style:none;font-size:14px}
+        .nav-links a{color:#f5f5f5;position:relative;letter-spacing:.3px}
+        .nav-links a:after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);transition:width .25s}
+        .nav-links a:hover:after{width:100%}
+        .cta-btn{padding:10px 24px;border-radius:999px;border:none;cursor:pointer;font-size:13px;font-weight:600;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;box-shadow:0 8px 25px rgba(102,126,234,.5);transition:all .2s;white-space:nowrap}
+        .cta-btn:hover{transform:translateY(-2px)}
+
+        .hero{padding:120px 5% 60px;background:radial-gradient(circle at top left,#262861 0%,#050509 55%,#000 100%)}
+        .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:3fr 2fr;gap:40px;align-items:center}
+        .breadcrumb{font-size:13px;color:#8f8f8f;margin-bottom:10px}
+        .breadcrumb a{color:#c9c9ff}
+        .hero-title{font-size:38px;margin-bottom:12px}
+        .gradient-text{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .hero-subtitle{font-size:15px;color:#c0c0c0;margin-bottom:20px;line-height:1.7}
+        .hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+        .tag-pill{font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(5,5,10,.5);color:#d8d8ff}
+        .hero-stats{display:flex;flex-wrap:wrap;gap:18px}
+        .hero-stat-card{padding:10px 16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);min-width:120px}
+        .hero-stat-label{font-size:11px;color:#b0b0b0;margin-bottom:4px}
+        .hero-stat-value{font-size:16px;font-weight:600}
+        .hero-stat-highlight{color:#8effa1}
+
+        .hero-right{padding:20px;border-radius:20px;background:radial-gradient(circle at top,rgba(102,126,234,.25),rgba(5,5,10,.95));border:1px solid rgba(255,255,255,.08)}
+        .hero-right-title{font-size:16px;margin-bottom:8px}
+        .hero-right-row{display:flex;justify-content:space-between;font-size:13px;color:#d0d0d0;margin-bottom:6px}
+        .hero-right-divider{height:1px;margin:10px 0 12px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent)}
+        .hero-right-services{font-size:13px;color:#c6c6ff;margin-bottom:16px}
+        .hero-right-cta{display:flex;gap:10px;flex-wrap:wrap}
+        .hero-right-cta .primary{padding:8px 16px;border-radius:999px;border:none;cursor:pointer;background:#0b0b0f;color:#fff;font-size:13px}
+        .hero-right-cta .secondary{padding:8px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;font-size:13px;cursor:pointer}
+
+        .content{padding:40px 5% 80px;background:#050509}
+        .content-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2.2fr 1.2fr;gap:40px}
+        .content-section{margin-bottom:28px}
+        .content-section h3{font-size:18px;margin-bottom:10px}
+        .content-section p{font-size:14px;color:#c4c4c4;line-height:1.7}
+        .highlight-box{padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);font-size:13px;color:#dcdcff}
+        .highlight-title{font-weight:600;margin-bottom:6px}
+        .side-list{list-style:none;font-size:13px;color:#c8c8c8}
+        .side-list li{margin-bottom:6px;position:relative;padding-left:16px}
+        .side-list li:before{content:"✓";position:absolute;left:0;color:#7affb9;font-size:11px}
+        .two-column-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 30px;font-size:13px;color:#c4c4ff;margin-top:8px;list-style:none}
+        .two-column-list li{position:relative;padding-left:16px}
+        .two-column-list li:before{content:"•";position:absolute;left:3px;color:#8f94ff}
+
+        .stack-card{padding:16px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);font-size:13px;margin-bottom:18px}
+        .stack-label{font-size:11px;color:#9b9b9b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+        .stack-items{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+        .stack-pill{padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);font-size:11px;color:#e0e0ff}
+
+        .metrics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;font-size:13px}
+        .metric-item{padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)}
+        .metric-label{font-size:11px;color:#a8a8a8}
+        .metric-value{font-size:14px;color:#dfffdf}
+
+        .cta-section{padding:50px 5% 70px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%)}
+        .cta-inner{max-width:900px;margin:0 auto;text-align:center}
+        .cta-inner h2{font-size:28px;margin-bottom:10px}
+        .cta-inner p{font-size:15px;margin-bottom:20px}
+        .cta-buttons{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+        .btn-dark,.btn-outline{padding:10px 20px;border-radius:999px;font-size:13px;cursor:pointer;transition:all .2s}
+        .btn-dark{background:#050509;color:#fff;border:none}
+        .btn-dark:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
+        .btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.7)}
+        .btn-outline:hover{background:rgba(0,0,0,.12)}
+
+        footer{background:#030307;padding:30px 5% 18px;border-top:1px solid rgba(255,255,255,.08)}
+        .footer-content{max-width:1200px;margin:0 auto 12px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+        .footer-left{max-width:420px}
+        .footer-left h3{font-size:18px;margin-bottom:6px}
+        .footer-left p{font-size:13px;color:#b0b0b0}
+        .footer-links{display:flex;gap:30px;flex-wrap:wrap}
+        .footer-column h4{font-size:13px;margin-bottom:6px}
+        .footer-column ul{list-style:none}
+        .footer-column li{margin-bottom:4px}
+        .footer-column a{font-size:12px;color:#b0b0b0}
+        .footer-column a:hover{color:#667eea}
+        .footer-bottom{max-width:1200px;margin:0 auto;font-size:11px;color:#777;text-align:center;border-top:1px solid rgba(255,255,255,.06);padding-top:8px}
+
+        .scroll-top{position:fixed;bottom:26px;right:26px;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;cursor:pointer;opacity:0;transition:all .3s;z-index:999;box-shadow:0 6px 25px rgba(102,126,234,.6)}
+        .scroll-top.visible{opacity:1}
+        .scroll-top:hover{transform:translateY(-4px)}
+
+        @media(max-width:1024px){
+            .hero-inner{grid-template-columns:1fr}
+            .content-inner{grid-template-columns:1fr}
+        }
+        @media(max-width:768px){
+            .nav-links{display:none}
+            .hero-title{font-size:28px}
+            .hero-subtitle{font-size:14px}
+            .two-column-list{grid-template-columns:1fr}
+            .metrics-grid{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+<nav id="navbar">
+    <div class="nav-container">
+        <div class="logo" onclick="location.href='index.html'">CoudPulse</div>
+        <ul class="nav-links">
+            <li><a href="index.html#top">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="work.html">Our Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="cta-btn" onclick="location.href='contact.html'">Book a Strategy Call</button>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-inner">
+        <div>
+            <div class="breadcrumb">
+                <a href="work.html">Our Work</a> · Case Study · <span>Education Webinar Funnels</span>
+            </div>
+            <h1 class="hero-title">
+                Education Funnels – <span class="gradient-text">₹99 Webinar Systems for Course Creators</span>
+            </h1>
+            <p class="hero-subtitle">
+                Multiple education brands & trainers partnered with CoudPulse to build webinar funnels that
+                turn cold traffic into paid students using a structured ₹99 front-end offer and clear nurturing.
+            </p>
+            <div class="hero-tags">
+                <span class="tag-pill">Education & Coaching</span>
+                <span class="tag-pill">₹99 Webinar Funnel</span>
+                <span class="tag-pill">Landing Pages + Ads</span>
+                <span class="tag-pill">Email Automation</span>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat-card">
+                    <div class="hero-stat-label">Funnel Type</div>
+                    <div class="hero-stat-value">Webinar + Course</div>
+                </div>
+                <div class="hero-stat-card">
+                    <div class="hero-stat-label">Primary Goal</div>
+                    <div class="hero-stat-value">Enrollments</div>
+                </div>
+                <div class="hero-stat-card">
+                    <div class="hero-stat-label">Key Outcome</div>
+                    <div class="hero-stat-value hero-stat-highlight">Predictable Registrations</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="hero-right-title">Project Snapshot</div>
+            <div class="hero-right-row"><span>Client Type</span><span>Coaches & Educators</span></div>
+            <div class="hero-right-row"><span>Industry</span><span>Online Education</span></div>
+            <div class="hero-right-row"><span>Region</span><span>Pan India</span></div>
+            <div class="hero-right-divider"></div>
+            <div class="hero-right-services">
+                Services used: Landing Pages · Meta Lead Ads · Email Drip · WhatsApp Reminders · Funnel Strategy
+            </div>
+            <div class="hero-right-cta">
+                <button class="primary" onclick="location.href='contact.html'">Build My Webinar Funnel</button>
+                <button class="secondary" onclick="location.href='work.html'">Back to All Work</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="content-inner">
+        <div>
+            <div class="content-section">
+                <h3>The Challenge</h3>
+                <p>
+                    Many coaches & trainers had strong expertise but inconsistent sales. Their webinars were
+                    either not full, or attendees didn’t convert into paying students. Funnels were incomplete,
+                    tracking was missing, and follow-up was manual.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h3>Our Strategy</h3>
+                <div class="highlight-box">
+                    <div class="highlight-title">Turn webinars into a repeatable, measurable system.</div>
+                    <p>
+                        Instead of one-off promotions, we structured a repeatable funnel — from ad to webinar
+                        registration, reminders, live session and course offer, with every step optimized for clarity
+                        and conversion.
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>What We Implemented</h3>
+                <ul class="two-column-list">
+                    <li>Dedicated landing pages for each trainer/webinar.</li>
+                    <li>Clear communication of outcome, bonuses and webinar agenda.</li>
+                    <li>Meta ad campaigns focused on interests, behavior & lookalike audiences.</li>
+                    <li>Pixel & event tracking on registration and thank-you pages.</li>
+                    <li>WhatsApp & email reminders to increase show-up rate.</li>
+                    <li>Simple post-webinar sequences for replays & course offers.</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>Execution Flow</h3>
+                <p style="margin-bottom:10px;">
+                    For each education client, we followed a similar implementation pattern:
+                </p>
+                <ul class="side-list" style="margin-left:0;">
+                    <li>Clarify ideal student profile and webinar topic / promise.</li>
+                    <li>Write landing page copy focused on outcomes, not features.</li>
+                    <li>Design clean, mobile-first landing pages with social proof and FAQs.</li>
+                    <li>Launch multiple ad sets testing creatives, hooks and audiences.</li>
+                    <li>Monitor registrations, cost-per-lead and show-up data.</li>
+                    <li>Refine messaging and audience as the funnel matured.</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>Results & Outcomes</h3>
+                <p style="margin-bottom:10px;">
+                    Across different education clients, we observed:
+                </p>
+                <ul class="side-list" style="margin-left:0;">
+                    <li>More stable webinar registrations at a predictable CPL.</li>
+                    <li>Higher perceived value through structured webinar communication.</li>
+                    <li>Better conversion to main courses with simple, clear follow-up.</li>
+                    <li>Reusable funnel assets that can be used for future launches.</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>Why This Worked</h3>
+                <p>
+                    Instead of trying to “sell courses directly”, we built trust via value-first webinars
+                    and positioned the main programs as a natural next step. Combined with consistent ads and automated
+                    follow-up, this transformed launches into a more stable, data-driven system.
+                </p>
+            </div>
+        </div>
+
+        <aside>
+            <div class="stack-card">
+                <div class="stack-label">Funnel Components</div>
+                <div class="stack-items">
+                    <span class="stack-pill">Landing Pages</span>
+                    <span class="stack-pill">Meta Lead Ads</span>
+                    <span class="stack-pill">Email Sequences</span>
+                    <span class="stack-pill">WhatsApp Alerts</span>
+                    <span class="stack-pill">Replay Pages</span>
+                </div>
+                <div class="stack-label">Platforms Used</div>
+                <div class="stack-items">
+                    <span class="stack-pill">Instagram</span>
+                    <span class="stack-pill">Facebook</span>
+                    <span class="stack-pill">Meta Ads Manager</span>
+                    <span class="stack-pill">Email Tool / CRM</span>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>Key Wins</h3>
+                <ul class="side-list">
+                    <li>Predictable webinar seat filling.</li>
+                    <li>Clear positioning for each trainer’s niche.</li>
+                    <li>Lead data captured & organized for long-term nurturing.</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>At a Glance</h3>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-label">Webinar Format</div>
+                        <div class="metric-value">₹99 Front-End</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Objective</div>
+                        <div class="metric-value">Course Enrollments</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Traffic Mix</div>
+                        <div class="metric-value">Cold + Warm</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Core Services</div>
+                        <div class="metric-value">Funnels + Ads</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>Perfect For</h3>
+                <ul class="side-list">
+                    <li>Trainers launching signature programs.</li>
+                    <li>Coaching academies with ongoing batches.</li>
+                    <li>Experts moving from offline to online teaching.</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="cta-inner">
+        <h2>Want a ₹99 Webinar Funnel For Your Course?</h2>
+        <p>
+            If you are an educator, trainer or coach, CoudPulse can help you build
+            a complete funnel — from ads and landing pages to nurturing and sales.
+        </p>
+        <div class="cta-buttons">
+            <button class="btn-dark" onclick="location.href='contact.html'">Talk to CoudPulse</button>
+            <button class="btn-outline" onclick="location.href='work.html'">View More Case Studies</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-left">
+            <h3>CoudPulse Digital Solutions</h3>
+            <p>
+                Founded by Sujal Anand Nimbekar, CoudPulse is a performance-driven
+                digital agency helping brands, educators and leaders build systems that convert.
+            </p>
+        </div>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="index.html#top">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="work.html">Our Work</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:9021272454">📞 9021272454</a></li>
+                    <li><a href="mailto:nimbekarsujal90@gmail.com">📧 nimbekarsujal90@gmail.com</a></li>
+                    <li>Founder & CEO: Sujal Anand Nimbekar</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © <span id="year"></span> CoudPulse Digital Solutions. All rights reserved.
+    </div>
+</footer>
+
+<div class="scroll-top" id="scrollTopBtn">↑</div>
+
+<script>
+const navbar=document.getElementById('navbar');
+const scrollTopBtn=document.getElementById('scrollTopBtn');
+window.addEventListener('scroll',()=>{if(window.scrollY>80){navbar.classList.add('scrolled');scrollTopBtn.classList.add('visible');}else{navbar.classList.remove('scrolled');scrollTopBtn.classList.remove('visible');}});
+scrollTopBtn.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
