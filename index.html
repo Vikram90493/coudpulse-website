@@ -910,6 +910,19 @@
     transform: translateX(-50%);
   }
 }
+/* Fix top spacing under navbar on mobile */
+@media(max-width: 768px) {
+  .hero {
+    padding-top: 140px !important; /* Increased from 110px */
+  }
+}
+/* Logo bigger on mobile */
+@media(max-width: 768px) {
+  .logo img {
+    height: 50px !important;
+    width: auto;
+  }
+}
 
 
     </style>
@@ -1377,3 +1390,4 @@ function toggleMenu() {
 
 </body>
 </html>
+
