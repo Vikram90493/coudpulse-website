@@ -33,14 +33,20 @@
             align-items:center;
             gap:20px;
         }
-        .logo{
-            font-size:24px;
-            font-weight:700;
-            background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
-            cursor:pointer;
-        }
+         /* LOGO SIZE CONTROL */
+    .logo img {
+        height: 100px !important;
+        width: auto !important;
+        object-fit: contain;
+        display: block;
+    }
+
+    @media(max-width: 768px) {
+        .logo img { height: 28px !important; }
+    }
+    @media(max-width: 480px) {
+        .logo img { height: 24px !important; }
+    }
         .nav-links{
             list-style:none;
             display:flex;
@@ -257,14 +263,65 @@
             .grid-3{grid-template-columns:1fr}
             .gallery{grid-template-columns:1fr}
         }
+        /* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    z-index: 9999;
+}
+
+/* WhatsApp CTA Bar */
+.whatsapp-cta {
+    position: fixed;
+    left: 10px;
+    bottom: 20px;
+    background: #25D366;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    z-index: 9999;
+}
+
+.whatsapp-cta span.icon {
+    font-size: 18px;
+}
+
+/* On very small screens hide one (optional) */
+@media(max-width: 480px) {
+    .whatsapp-cta {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
     </style>
+    
 </head>
 <body>
 
 <!-- Nav -->
 <nav>
     <div class="nav-container">
-        <div class="logo" onclick="location.href='index.html'">CoudPulse</div>
+        <div class="logo" onclick="location.href='index.html'"><img src="logo.png" alt=""></div>
         <ul class="nav-links">
             <li><a href="index.html#top">Home</a></li>
             <li><a href="index.html#services">Services</a></li>
@@ -450,6 +507,11 @@
         <button class="back-btn" onclick="location.href='work.html'">← Back to Our Work</button>
     </div>
 </section>
-
+<!-- WhatsApp CTA Pill -->
+<a href="https://wa.me/919021272454?text=Hi%20CoudPulse%20team,%20I%20want%20help%20with%20my%20brand%20or%20campaign."
+   class="whatsapp-cta" target="_blank">
+    <span class="icon">🟢</span>
+    <span>Chat on WhatsApp</span>
+</a>
 </body>
 </html>
